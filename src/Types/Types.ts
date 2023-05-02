@@ -1,4 +1,4 @@
-export enum INote {
+export enum INoteEnum {
 	'A' = 'A',
 	'B' = 'B',
 	'C' = 'C',
@@ -6,4 +6,10 @@ export enum INote {
 	'E' = 'E',
 	'F' = 'F',
 	'G' = 'G',
+}
+
+export interface INote {
+	note: INoteEnum
+	octave: number
+	file: string
 }
