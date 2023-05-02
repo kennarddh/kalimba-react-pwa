@@ -1,11 +1,24 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 
 import Button from 'Components/Button/Button'
 
-import { Container, AttributionContainer, ButtonContainer } from './AppStyles'
 import Notes from 'Constants/Notes'
 
+import AmplifyAudio from 'Utils/AmplifyAudio'
+
+import { INote } from 'Types/Types'
+
+import { Container, AttributionContainer, ButtonContainer } from './AppStyles'
+
 const App: FC = () => {
+	const OnClickNote = useCallback((note: INote) => {
+		const audio = new Audio(note.file)
+
+		AmplifyAudio(audio, 2)
+
+		audio.play()
+	}, [])
+
 	return (
 		<Container>
 			<AttributionContainer>
@@ -20,6 +33,7 @@ const App: FC = () => {
 						key={`${note.note}${note.octave}`}
 						octave={note.octave}
 						note={note.note}
+						onClick={() => OnClickNote(note)}
 					/>
 				))}
 			</ButtonContainer>
