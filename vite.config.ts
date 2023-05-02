@@ -14,6 +14,7 @@ export const relativeAlias: Record<string, string> = {
 	Hooks: './src/Hooks',
 	Constants: './src/Constants',
 	Api: './src/Api',
+	Types: './src/Types',
 }
 
 export const resolveAlias = Object.entries(relativeAlias).reduce(

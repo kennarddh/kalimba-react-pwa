@@ -22,3 +22,11 @@ export const AttributionContainer = styled.div`
 		color: #fff;
 	}
 `
+
+export const ButtonContainer = styled.div`
+	padding: 0 30px;
+
+	width: 100%;
+
+	height: 100%;
+`

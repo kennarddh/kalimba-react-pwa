@@ -1,6 +1,10 @@
 import { FC } from 'react'
 
-import { Container, AttributionContainer } from './AppStyles'
+import Button from 'Components/Button/Button'
+
+import { INote } from 'Types/Types'
+
+import { Container, AttributionContainer, ButtonContainer } from './AppStyles'
 
 const App: FC = () => {
 	return (
@@ -11,6 +15,9 @@ const App: FC = () => {
 					Freepik
 				</a>
 			</AttributionContainer>
+			<ButtonContainer>
+				<Button dotAfterNumber={2} note={INote.C} />
+			</ButtonContainer>
 		</Container>
 	)
 }
