@@ -9,6 +9,9 @@ export const Container = styled.div`
 	background-size: cover;
 
 	position: relative;
+
+	display: flex;
+	justify-content: center;
 `
 
 export const AttributionContainer = styled.div`
@@ -24,9 +27,10 @@ export const AttributionContainer = styled.div`
 `
 
 export const ButtonContainer = styled.div`
-	padding: 0 30px;
-
-	width: 100%;
+	width: clamp(80%, 85%, 95%);
 
 	height: 100%;
+
+	display: flex;
+	justify-content: space-between;
 `

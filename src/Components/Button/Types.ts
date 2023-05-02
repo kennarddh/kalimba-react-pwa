@@ -1,6 +1,6 @@
-import { INote } from 'Types/Types'
+import { INoteEnum } from 'Types/Types'
 
 export interface IButton {
-	dotAfterNumber: number
-	note: INote
+	note: INoteEnum
+	octave: number
 }
