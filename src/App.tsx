@@ -4,7 +4,7 @@ import Button from 'Components/Button/Button'
 
 import Notes from 'Constants/Notes'
 
-import AmplifyAudio from 'Utils/AmplifyAudio'
+import PlayAudio from 'Utils/PlayAudio'
 
 import { INote } from 'Types/Types'
 
@@ -12,11 +12,7 @@ import { Container, AttributionContainer, ButtonContainer } from './AppStyles'
 
 const App: FC = () => {
 	const OnClickNote = useCallback((note: INote) => {
-		const audio = new Audio(note.file)
-
-		AmplifyAudio(audio, 2)
-
-		audio.play()
+		PlayAudio(note)
 	}, [])
 
 	return (
