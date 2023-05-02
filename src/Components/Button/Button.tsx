@@ -7,12 +7,12 @@ import { Container, TextContainer, StyledNumber } from './Styles'
 
 import { IButton } from './Types'
 
-const Button: FC<IButton> = ({ note, octave }) => {
+const Button: FC<IButton> = ({ note, octave, onClick }) => {
 	return (
 		<Container
 			$height={70 + (NoteToNumberMap[note] + (octave - 3) * 7 - 7) * -2.5}
 		>
-			<TextContainer>
+			<TextContainer onClick={onClick}>
 				<p>{note}</p>
 				<StyledNumber>
 					{Array(octave - 4)
