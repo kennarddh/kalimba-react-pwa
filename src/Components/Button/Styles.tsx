@@ -10,16 +10,29 @@ export const Container = styled.button<{ $height: number }>`
 
 	border: none;
 
-	background: linear-gradient(to top, #eee 90px, #ddd 90px);
+	background-color: #ddd;
 
 	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-
-	padding: 10px 0;
+	flex-direction: column;
+	justify-content: flex-end;
 `
 
 export const TextContainer = styled.div`
+	background-color: #eee;
+
+	width: 100%;
+	height: 90px;
+
+	padding: 10px 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+
 	& p {
 		font-size: 20px;
 	}
