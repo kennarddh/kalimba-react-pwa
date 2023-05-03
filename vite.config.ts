@@ -139,6 +139,7 @@ export default defineConfig(({ mode }) => {
 				},
 			}),
 		],
+		base: '/kalimba-react-pwa/',
 		resolve: {
 			alias: resolveAlias,
 		},

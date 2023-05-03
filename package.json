@@ -3,8 +3,9 @@
 	"version": "1.0.0",
 	"description": "React js boilerplate",
 	"main": "src/index.js",
+	"homepage": "https://kennarddh.github.io/kalimba-react-pwa/",
 	"scripts": {
-		"deploy": "gh-pages -d build",
+		"deploy": "npm run build && gh-pages -d build",
 		"start": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
@@ -37,7 +38,6 @@
 	"bugs": {
 		"url": "https://github.com/kennarddh/reactjs-boilerplate/issues"
 	},
-	"homepage": "https://github.com/kennarddh/reactjs-boilerplate#readme",
 	"devDependencies": {
 		"@babel/core": "^7.21.4",
 		"@babel/preset-env": "^7.21.4",
