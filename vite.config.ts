@@ -6,6 +6,7 @@ import svgr from 'vite-plugin-svgr'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import mkcert from 'vite-plugin-mkcert'
+import replace from '@rollup/plugin-replace'
 
 import { resolve } from 'path'
 
@@ -37,8 +38,14 @@ export default defineConfig(({ mode }) => {
 		...loadEnv(mode, process.cwd(), ''),
 	}
 
+	const base = mode === 'development' ? '' : '/kalimba-react-pwa'
+
 	return {
 		plugins: [
+			replace({
+				__PUBLIC_URL__: base,
+				preventAssignment: true,
+			}),
 			mkcert(),
 			react(),
 			svgr(),
@@ -139,7 +146,7 @@ export default defineConfig(({ mode }) => {
 				},
 			}),
 		],
-		base: '/kalimba-react-pwa/',
+		base,
 		resolve: {
 			alias: resolveAlias,
 		},
