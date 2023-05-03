@@ -68,7 +68,7 @@ export default defineConfig(({ mode }) => {
 				injectRegister: null,
 				includeAssets: ['SoundSample/**/*.wav', 'WoodBackground.jpg'],
 				manifest: {
-					start_url: '',
+					start_url: '/',
 					name: 'Kalimba React PWA',
 					short_name: 'Kalimba',
 					theme_color: '#70baff',
