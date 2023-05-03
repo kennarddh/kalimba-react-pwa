@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"useDefineForClassFields": true,
-		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
 		"allowJs": false,
 		"skipLibCheck": true,
 		"esModuleInterop": false,
@@ -19,8 +19,8 @@
 		"removeComments": true,
 		"sourceMap": true,
 		"noImplicitAny": true,
-		"types": ["jest", "@testing-library/jest-dom"]
+		"types": ["jest", "@testing-library/jest-dom", "vite-plugin-pwa/client"]
 	},
-	"include": ["src"],
+	"include": ["src", "ServiceWorker.ts", "RegisterSW.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -4,6 +4,8 @@ import { defineConfig, loadEnv } from 'vite'
 import { checker } from 'vite-plugin-checker'
 import svgr from 'vite-plugin-svgr'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import mkcert from 'vite-plugin-mkcert'
 
 import { resolve } from 'path'
 
@@ -37,12 +39,41 @@ export default defineConfig(({ mode }) => {
 
 	return {
 		plugins: [
+			mkcert(),
 			react(),
 			svgr(),
 			checker({
 				typescript: true,
 				eslint: {
 					lintCommand: 'lint:check"',
+				},
+			}),
+			VitePWA({
+				devOptions: {
+					enabled: mode === 'development',
+					type: 'module',
+					navigateFallback: 'index.html',
+				},
+				registerType: 'autoUpdate',
+				strategies: 'injectManifest',
+				srcDir: '',
+				filename: 'ServiceWorker.ts',
+				injectRegister: null,
+				manifest: {
+					start_url: '',
+					name: 'Kalimba React PWA',
+					short_name: 'Kalimba',
+					theme_color: '#ffffff',
+					display: 'standalone',
+					orientation: 'landscape',
+					description: 'Kalimba React PWA',
+					icons: [
+						{
+							type: 'image/x-icon',
+							src: '/favicon.ico',
+							sizes: '64x64',
+						},
+					],
 				},
 			}),
 		],
