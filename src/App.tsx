@@ -18,10 +18,20 @@ const App: FC = () => {
 	return (
 		<Container>
 			<AttributionContainer>
-				Background by{' '}
-				<a href='https://www.freepik.com/free-vector/flat-design-wood-texture-illustration_22628444.htm#query=cartoon%20wood%20texture&position=2&from_view=keyword&track=ais#position=2&query=cartoon%20wood%20texture'>
-					Freepik
-				</a>
+				<p>
+					Background by{' '}
+					<a href='https://www.freepik.com/free-vector/flat-design-wood-texture-illustration_22628444.htm#query=cartoon%20wood%20texture&position=2&from_view=keyword&track=ais#position=2&query=cartoon%20wood%20texture'>
+						Freepik
+					</a>
+				</p>
+				<p>
+					<a
+						href='https://www.flaticon.com/free-icons/kalimba'
+						title='kalimba icons'
+					>
+						Kalimba icons created by Freepik - Flaticon
+					</a>
+				</p>
 			</AttributionContainer>
 			<ButtonContainer>
 				{Notes.map(note => (
