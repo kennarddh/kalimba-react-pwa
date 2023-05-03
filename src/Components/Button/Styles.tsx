@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
-export const Container = styled.button<{ $height: number }>`
+export const Container = styled.div<{ $height: number }>`
 	width: clamp(20px, 4%, 5%);
 
 	height: ${({ $height }) => $height}%;
 
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-
-	border: none;
 
 	background-color: #ddd;
 
@@ -17,11 +15,13 @@ export const Container = styled.button<{ $height: number }>`
 	justify-content: flex-end;
 `
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.button`
 	background-color: #eee;
 
 	width: 100%;
 	height: 90px;
+
+	border: none;
 
 	padding: 10px 0;
 
@@ -32,6 +32,8 @@ export const TextContainer = styled.div`
 
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
+
+	user-select: none;
 
 	& p {
 		font-size: 20px;
