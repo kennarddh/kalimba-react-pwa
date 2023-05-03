@@ -13,3 +13,10 @@ export interface INote {
 	octave: number
 	file: string
 }
+
+export interface INoteWithoutFile {
+	note: INoteEnum
+	octave: number
+}
+
+export type INoteShortcut = Record<string, INoteWithoutFile>

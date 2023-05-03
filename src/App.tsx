@@ -1,19 +1,51 @@
-import { FC, useCallback } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 
 import Button from 'Components/Button/Button'
 
 import Notes from 'Constants/Notes'
 
 import PlayAudio from 'Utils/PlayAudio'
+import FindNoteByNoteWithoutFile from 'Utils/FindNoteByNoteWithoutFile'
 
-import { INote } from 'Types/Types'
+import { INote, INoteEnum, INoteShortcut } from 'Types/Types'
 
 import { Container, AttributionContainer, ButtonContainer } from './AppStyles'
 
 const App: FC = () => {
+	const [NoteShortcut] = useState<INoteShortcut>({
+		a: { note: INoteEnum.C, octave: 5 },
+		s: { note: INoteEnum.A, octave: 4 },
+		d: { note: INoteEnum.F, octave: 4 },
+		f: { note: INoteEnum.D, octave: 4 },
+		j: { note: INoteEnum.C, octave: 4 },
+		k: { note: INoteEnum.E, octave: 4 },
+		l: { note: INoteEnum.G, octave: 4 },
+		';': { note: INoteEnum.B, octave: 4 },
+	})
+
 	const OnClickNote = useCallback((note: INote) => {
+		console.log(note)
 		PlayAudio(note)
 	}, [])
+
+	const OnKeyDown = useCallback(
+		(event: KeyboardEvent) => {
+			if (!Object.keys(NoteShortcut).includes(event.key)) return
+
+			const note = FindNoteByNoteWithoutFile(NoteShortcut[event.key])
+
+			if (!note) return
+
+			PlayAudio(note)
+		},
+		[NoteShortcut]
+	)
+
+	useEffect(() => {
+		addEventListener('keydown', OnKeyDown)
+
+		return () => removeEventListener('keydown', OnKeyDown)
+	}, [OnKeyDown])
 
 	return (
 		<Container>
