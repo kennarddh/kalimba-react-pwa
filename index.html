@@ -112,7 +112,15 @@
 
 		<script src="//cdn.jsdelivr.net/npm/eruda"></script>
 		<script>
-			eruda.init()
+			const params = new Proxy(
+				new URLSearchParams(window.location.search),
+				{
+					get: (searchParams, prop) => searchParams.get(prop),
+				}
+			)
+			const value = params.eruda // "run"
+
+			if (value === 'run') eruda.init()
 		</script>
 	</body>
 </html>
