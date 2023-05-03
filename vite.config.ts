@@ -66,6 +66,7 @@ export default defineConfig(({ mode }) => {
 				srcDir: '',
 				filename: 'ServiceWorker.ts',
 				injectRegister: null,
+				includeAssets: ['SoundSample/**/*.wav', 'WoodBackground.jpg'],
 				manifest: {
 					start_url: '',
 					name: 'Kalimba React PWA',
