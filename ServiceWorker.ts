@@ -51,23 +51,3 @@ registerRoute(
 		],
 	})
 )
-
-const audioExtensionRegex = /.(wav)$/gi
-
-// An example runtime caching route for requests that aren't handled by the
-// precache, in this case same-origin resource requests like those from in public/
-registerRoute(
-	// Add in any other file extensions or routing criteria as needed.
-	({ url }) =>
-		url.origin === self.location.origin &&
-		url.pathname.match(audioExtensionRegex),
-	// Customize this strategy as needed, e.g., by changing to CacheFirst.
-	new StaleWhileRevalidate({
-		cacheName: 'audio',
-		plugins: [
-			// Ensure that once this runtime cache reaches a maximum size the
-			// least-recently used images are removed.
-			new ExpirationPlugin({ maxEntries: 50 }),
-		],
-	})
-)
