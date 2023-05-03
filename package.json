@@ -4,6 +4,7 @@
 	"description": "React js boilerplate",
 	"main": "src/index.js",
 	"scripts": {
+		"deploy": "gh-pages -d build",
 		"start": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
@@ -66,6 +67,7 @@
 		"eslint-plugin-react": "^7.32.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-security": "^1.7.1",
+		"gh-pages": "^5.0.0",
 		"husky": "^8.0.3",
 		"jest": "^29.5.0",
 		"jest-environment-jsdom": "^29.5.0",
