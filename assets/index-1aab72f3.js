@@ -102,7 +102,7 @@ Error generating stack: `+o.message+`
 	width: 100%;
 	height: 100vh;
 
-	background-image: url('/WoodBackground.jpg');
+	background-image: url('/kalimba-react-pwa/WoodBackground.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 
