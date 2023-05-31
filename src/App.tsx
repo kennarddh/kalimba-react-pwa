@@ -1,10 +1,9 @@
-import { FC, useCallback, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect, useState, useRef } from 'react'
 
 import Button from 'Components/Button/Button'
 
 import Notes from 'Constants/Notes'
 
-import PlayAudio from 'Utils/PlayAudio'
 import FindNoteByNoteWithoutFile from 'Utils/FindNoteByNoteWithoutFile'
 
 import { INote, INoteEnum, INoteShortcut } from 'Types/Types'
@@ -23,8 +22,18 @@ const App: FC = () => {
 		';': { note: INoteEnum.B, octave: 4 },
 	})
 
+	const AudioRefs = useRef<Record<string, HTMLAudioElement | null>>({})
+
+	const PlayAudio = useCallback((note: INote) => {
+		const audio =
+			AudioRefs.current[`${note.note}-${note.octave}-${note.file}`]
+		if (!audio) return
+
+		audio.currentTime = 0
+		audio.play()
+	}, [])
+
 	const OnClickNote = useCallback((note: INote) => {
-		console.log(note)
 		PlayAudio(note)
 	}, [])
 
@@ -49,6 +58,17 @@ const App: FC = () => {
 
 	return (
 		<Container>
+			{Notes.map(note => (
+				<audio
+					src={note.file}
+					key={`${note.note}-${note.octave}-${note.file}`}
+					ref={el => {
+						AudioRefs.current[
+							`${note.note}-${note.octave}-${note.file}`
+						] = el
+					}}
+				></audio>
+			))}
 			<AttributionContainer>
 				<p>
 					Background by{' '}
