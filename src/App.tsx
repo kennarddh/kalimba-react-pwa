@@ -33,9 +33,12 @@ const App: FC = () => {
 		audio.play()
 	}, [])
 
-	const OnClickNote = useCallback((note: INote) => {
-		PlayAudio(note)
-	}, [])
+	const OnClickNote = useCallback(
+		(note: INote) => {
+			PlayAudio(note)
+		},
+		[PlayAudio]
+	)
 
 	const OnKeyDown = useCallback(
 		(event: KeyboardEvent) => {
@@ -47,7 +50,7 @@ const App: FC = () => {
 
 			PlayAudio(note)
 		},
-		[NoteShortcut]
+		[NoteShortcut, PlayAudio]
 	)
 
 	useEffect(() => {
